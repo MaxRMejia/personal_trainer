@@ -20,7 +20,7 @@ Local prospective clients need a clear way to discover Lynette Cruz and Regal Po
   - **success:** Lynette Cruz, the service area, and phone are visible as searchable text, not embedded in images.
 - **CAP-2**
   - **intent:** Prospective clients can learn about Lynette Cruz, personal-training sessions, group classes, and packages.
-  - **success:** Home/About and Services & Classes present the trainer profile, contact-led personal training, current group schedule, and package options.
+  - **success:** Home/About and Services & Classes present the trainer profile, personal training by direct inquiry, current group schedule, and package options with a clear way to contact Lynette to register.
 - **CAP-3**
   - **intent:** Prospective clients can evaluate the trainer through reviews and training media.
   - **success:** Reviews presents review screenshots, and Media Gallery presents photos and embedded YouTube or Instagram videos.
@@ -29,7 +29,7 @@ Local prospective clients need a clear way to discover Lynette Cruz and Regal Po
   - **success:** Contact/Location displays 1 Hartford Square, New Britain, CT 06052 as searchable text, provides phone and email actions, and includes editable profile links or placeholders for Instagram, Facebook, TikTok, Snapchat, X, YouTube, and LinkedIn.
 - **CAP-5**
   - **intent:** Prospective clients can understand one-month package options and material class-pack terms before making an inquiry.
-  - **success:** Package content presents trainer-confirmed prices, class allowances, schedules, booking requirements, and material policies.
+  - **success:** Package content presents trainer-confirmed prices, class allowances, schedules, direct-contact registration, and material policies.
 - **CAP-6**
   - **intent:** Prospective clients can save and print the one-month agreement.
   - **success:** A visible agreement download button downloads the supplied PDF from the static site, and the PDF can be printed.
@@ -41,13 +41,16 @@ Local prospective clients need a clear way to discover Lynette Cruz and Regal Po
 - The supplied Regal Power Fitness logo and its red, black, and gold colors define the brand direction.
 - Target New Britain and the nearby Connecticut communities Plainville, Southington, Newington, West Hartford, Bristol, and Berlin.
 - Social profile placeholders cover Instagram, Facebook, TikTok, Snapchat, X, YouTube, and LinkedIn; final URLs must come from the trainer.
+- No booking app is currently used; prospective clients contact Lynette directly to register for classes.
 - Link the visible agreement download control to `assets/Lynette_Cruz_One_Month_Agreement.pdf`, the corrected PDF whose package title matches the confirmed schedule.
+- The trainer must remove the agreement's designated-booking-app sentence and update it for direct contact; do not publish the current PDF until the revised file replaces it.
 - The site must be mobile-first, accessible, and fast.
 - Trainer information must be updateable in content data without editing HTML templates.
 
 ## Non-goals
 
 - A contact form is outside this phase; contact is by phone and email buttons.
+- Booking-app integration is outside the current phase.
 - Self-hosting video is outside scope; videos are embedded from their platforms.
 
 ## Success signal
@@ -60,6 +63,5 @@ A prospective client on a mobile device can identify Lynette Cruz and the New Br
 
 ## Open Questions
 
-- What is the designated booking app and public URL, and should the site link to it?
 - What bio, credentials, phone/email, photos, review screenshots with reuse permission, and video URLs should be supplied? Which social profile URLs should replace the placeholders when available?
 - Is anything else in scope, such as a map, privacy information for embedded media, analytics, or other conversion flows?

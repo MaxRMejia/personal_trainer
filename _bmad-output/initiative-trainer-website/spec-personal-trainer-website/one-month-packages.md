@@ -1,6 +1,6 @@
 # One-Month Packages
 
-This companion records the supplied agreement details for the Services & Classes content. The confirmed group schedule is Tuesday and Thursday at 6:00 p.m. and Saturday at 9:30 a.m. The website provides a button to download and print `assets/Lynette_Cruz_One_Month_Agreement.pdf`, whose weekday package title is corrected to Tuesday & Thursday.
+This companion records the supplied agreement details for the Services & Classes content. The confirmed group schedule is Tuesday and Thursday at 6:00 p.m. and Saturday at 9:30 a.m. The website provides a button to download and print `assets/Lynette_Cruz_One_Month_Agreement.pdf`, whose weekday package title is corrected to Tuesday & Thursday. The trainer will revise the app-booking sentence before this PDF is published.
 
 ## Package Options
 
@@ -9,7 +9,7 @@ This companion records the supplied agreement details for the Services & Classes
 | Weekday one-month package | Tuesday and Thursday at 6:00 p.m. | $199 plus applicable sales tax | Up to 8 classes per month; maximum 2 classes per week |
 | Saturday one-month package | Saturday at 9:30 a.m.; dates selected by Trainer Lynette | $119 plus applicable sales tax | Up to 4 classes per month |
 
-Package days and available dates are selected at purchase based on the available schedule. The agreement says all classes are scheduled through a designated booking app; the app and public URL are not yet provided. An additional eligible class beyond the package allowance must be purchased separately.
+Package days and available dates are selected at purchase based on the available schedule. There is no booking app currently; prospective clients contact Lynette directly to register. The supplied agreement still says classes must be scheduled through a designated booking app, so that clause conflicts with the current process. An additional eligible class beyond the package allowance must be purchased separately.
 
 ## Supplied Agreement Policies
 
@@ -22,6 +22,6 @@ Package days and available dates are selected at purchase based on the available
 
 ## Download and Confirmation
 
-- Use the corrected `assets/Lynette_Cruz_One_Month_Agreement.pdf`; do not link the superseded `assets/Customer_One_Month_Agreement.pdf`.
-- Confirm the designated booking app and whether to link to it.
+- Trainer action: remove the sentence “All classes must be scheduled through the designated booking app.” and update the agreement for the direct-contact process.
+- Release gate: replace `assets/Lynette_Cruz_One_Month_Agreement.pdf` with the trainer's revised file before enabling or publishing the download button; do not publish the current version. Do not link the superseded `assets/Customer_One_Month_Agreement.pdf`.
 - Place the supplied PDF in the deployed static assets and link it from a visible download button; no server-side processing is needed.

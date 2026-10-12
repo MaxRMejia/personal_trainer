@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regal Power Fitness — UX Validation</title>
+<style>
+:root{--bg:#fafaf9;--surface:#fff;--border:#e7e5e4;--text:#1c1917;--muted:#57524e;--red:#b00000;--gold:#a06010;--good:#166534;--warn:#92400e;--open:#9a3412}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Source Sans 3",system-ui,sans-serif}.container{max-width:960px;margin:auto;padding:32px 24px 64px}h1,h2,h3{font-family:"Libre Baskerville",Georgia,serif;line-height:1.3}h1{font-size:28px}h2{font-size:20px}h3{font:600 16px "Source Sans 3",system-ui,sans-serif}.meta,.muted{color:var(--muted);font-size:14px}.summary,.panel{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:18px 22px;margin:18px 0}.summary{border-left:4px solid var(--red)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.pill{display:inline-block;border-radius:4px;padding:2px 8px;font-size:13px;font-weight:700}.strong{color:var(--good)}.adequate{color:var(--warn)}.open{color:var(--open)}.finding{border-top:1px solid var(--border);padding:12px 0}.finding:first-child{border:0}.count{color:var(--red);font-weight:700}footer{border-top:1px solid var(--border);margin-top:32px;padding-top:14px;font-size:13px;color:var(--muted)}a{color:var(--red)}
+</style>
+</head>
+<body><main class="container">
+<header><h1>Regal Power Fitness — UX Validation Report</h1><div class="meta">_bmad-output/initiative-trainer-website/ux-personal-trainer-website/</div><p class="muted">Run at 2026-10-11</p></header>
+<section class="summary"><h2>Overall verdict</h2><p>The UX pair is now a usable downstream contract: all six spec capabilities map to named-protagonist flows, components match across visual and behavioral spines, source links and five selected surface mockups resolve, and the design token linter reports zero errors and warnings. Reviewer findings were fixed or converted to explicit, bounded launch inputs.</p><p>Navigation and photo direction remain user-deferred; the updated agreement, real contact destinations, media captions, and embed privacy details remain required before launch.</p></section>
+<section class="panel"><h2>Category verdicts</h2><div class="grid">
+<div>Flow coverage <span class="pill strong">Strong</span></div><div>Token completeness <span class="pill strong">Strong</span></div><div>Component coverage <span class="pill strong">Strong</span></div><div>State coverage <span class="pill adequate">Adequate</span></div><div>Visual reference coverage <span class="pill strong">Strong (5 mocks)</span></div><div>Bloat &amp; overspecification <span class="pill strong">Strong</span></div><div>Inheritance discipline <span class="pill adequate">Adequate</span></div><div>Shape fit <span class="pill strong">Strong</span></div></div></section>
+<section class="panel"><h2>Accessibility review</h2><p>This was a contract-level review; no implemented site was available for runtime testing. Intended text-color pairings pass WCAG AA. The spines now specify reflow/zoom checks, keyboard and focus behavior, review text alternatives, PDF accessibility verification, and media failure fallbacks.</p><p>Confirm captions and privacy information for selected embeds, and test the actual site and trainer-revised agreement before release.</p></section>
+<section class="panel"><h2>Findings by severity</h2><p><span class="count">Critical: 0</span> · <span class="count">High: 0 active, 1 resolved</span> · <span class="count">Medium: 1 active, 7 resolved</span> · <span class="count">Low: 1 active, 1 resolved</span></p>
+<article class="finding"><h3>High — Flow coverage (resolved)</h3><p>The initial draft lacked journeys for reviews/media and local contact. A second named-protagonist flow was added; the two flows now map CAP-1 through CAP-6 and include climax and failure beats.</p></article>
+<article class="finding"><h3>Medium — Video captions and embed privacy remain open</h3><p>Confirm captions for selected videos and privacy information for immediate third-party embeds. Embed failure fallbacks are specified.</p></article>
+<article class="finding"><h3>Resolved review fixes</h3><p>Added pair-specific contrast ratios; 320 CSS px, 200% text, and 400% zoom checks; navigation safeguards, target sizing, image alternatives, video controls, PDF accessibility verification, and media failure states. Clarified the agreement revision status.</p></article>
+<article class="finding"><h3>Low — Divider contrast (resolved)</h3><p>The divider is decorative only and cannot identify a control or state. Bright gold is not used on light surfaces.</p></article>
+<article class="finding"><h3>Other launch inputs</h3><p>Navigation pattern remains user-deferred. The trainer must supply the revised accessible agreement PDF, real phone/email/social URLs, approved photos, and review screenshot reuse permissions before publishing them.</p></article>
+<article class="finding"><h3>Third-party privacy</h3><p>Immediate embeds remain the confirmed behavior; privacy information is an open input, counted with the medium media finding.</p></article>
+</section>
+<section class="panel"><h2>Reviewer files</h2><ul><li><a href="review-rubric.md">review-rubric.md</a></li><li><a href="review-accessibility.md">review-accessibility.md</a></li></ul></section>
+<footer><div>DESIGN.md: <a href="DESIGN.md">DESIGN.md</a></div><div>EXPERIENCE.md: <a href="EXPERIENCE.md">EXPERIENCE.md</a></div><div>Generated: 2026-10-11</div></footer>
+</main></body></html>

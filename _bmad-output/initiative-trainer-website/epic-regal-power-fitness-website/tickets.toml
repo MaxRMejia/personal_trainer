@@ -1,0 +1,88 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Build and deploy the Home/Services tracer"
+description = "Creates the shared Python/Jinja2/YAML-or-JSON/Pillow WebP pipeline, data contract, brand shell, and initial Home/About and Services & Classes pages on a Firebase preview; a person provisions and authenticates the preview project."
+verify = "From a clean checkout, build and inspect the preview: Lynette, address, service towns, and phone field are selectable text; the Home action reaches Services; direct-contact copy, personal-training inquiry, group schedule, prices, allowances, and package policies match the source; and a source image produces WebP output."
+covers = ["CAP-1", "CAP-2", "CAP-5"]
+after = []
+hitl = true
+risk = "medium"
+unknown = "A Firebase Hosting preview project and human deployment access are not configured."
+references = ["_bmad-output/initiative-trainer-website/ux-personal-trainer-website/DESIGN.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/EXPERIENCE.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/mockups/key-home-about.html", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/mockups/key-services-classes.html"]
+
+[[entry]]
+id = 2
+type = "story"
+title = "Build the Media Gallery"
+description = "Adds separate data-driven trainer-approved photos and immediately loaded YouTube/Instagram embeds with accessible titles, captions or equivalent access, and unavailable-state fallbacks."
+verify = "Approved media renders with keyboard-operable titled embeds and required caption or equivalent access; missing or broken media uses the documented fallback, and no video is self-hosted."
+covers = ["CAP-3"]
+after = [1]
+hitl = true
+risk = "medium"
+unknown = "Trainer-approved photos and YouTube/Instagram URLs, caption availability, and privacy information for immediate embeds are pending."
+references = ["_bmad-output/initiative-trainer-website/ux-personal-trainer-website/EXPERIENCE.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/mockups/key-media-gallery.html"]
+
+[[entry]]
+id = 3
+type = "story"
+title = "Build Contact and Location"
+description = "Publishes the confirmed address and service towns and owns the shared direct-contact component used on Home/About, Services & Classes, and Contact/Location; it provides this contact-action output to entry 5."
+verify = "With sample content, address and towns are searchable text, configured phone/email/social values use correct links, and absent optional values do not render broken actions."
+covers = ["CAP-1", "CAP-4"]
+after = [1]
+hitl = false
+risk = "medium"
+references = ["_bmad-output/initiative-trainer-website/ux-personal-trainer-website/DESIGN.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/EXPERIENCE.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/mockups/key-contact-location.html"]
+
+[[entry]]
+id = 4
+type = "story"
+title = "Build Reviews"
+description = "Presents trainer-approved review screenshots with review text, rating, attribution, and accessible alternatives in the reading flow."
+verify = "Approved screenshots display with readable review text, rating, attribution, and alternatives; missing images use the documented fallback."
+covers = ["CAP-3"]
+after = [1]
+hitl = true
+risk = "medium"
+unknown = "Trainer-approved review screenshots, readable review text/rating/attribution, and reuse permission are not yet supplied."
+references = ["_bmad-output/initiative-trainer-website/ux-personal-trainer-website/EXPERIENCE.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/mockups/key-reviews.html"]
+
+[[entry]]
+id = 5
+type = "story"
+title = "Add the revised agreement download"
+description = "Extends the Services & Classes surface after entry 3 provides the shared contact-action output, adding a download control for the trainer-revised accessible agreement only after the current PDF is replaced and its booking-app sentence is removed."
+verify = "The static link downloads the revised printable PDF with a Tuesday & Thursday weekday title, Saturday 9:30 a.m. schedule, direct-contact wording, selectable text, and usable reading/print order; the superseded file is never linked."
+covers = ["CAP-5", "CAP-6"]
+after = [3]
+hitl = true
+risk = "high"
+unknown = "The trainer's revised accessible PDF is not supplied; it must remove the designated-booking-app sentence and reflect direct contact."
+references = ["_bmad-output/initiative-trainer-website/spec-personal-trainer-website/one-month-packages.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/EXPERIENCE.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/mockups/key-services-classes.html"]
+notes = ["I will have to update the Agreement PDF file to remove that sentence \"All classes must be scheduled through the designated booking app.\" and update it accordingly."]
+
+[[entry]]
+id = 6
+type = "story"
+title = "Connect surfaces and deploy to Firebase Hosting"
+description = "Connects all five pages with the user-approved navigation pattern and deploys the complete static site to the configured Firebase Hosting production project."
+verify = "Production routes work, real phone/email and approved content render, the revised agreement downloads, keyboard/focus behavior passes, reflow works at 320 CSS px, text works at 200% and 400% zoom, and the agreed performance target is met."
+covers = ["CAP-1", "CAP-2", "CAP-3", "CAP-4", "CAP-5", "CAP-6"]
+after = [2, 3, 4, 5]
+hitl = true
+risk = "medium"
+unknown = "The user-deferred navigation pattern, real phone/email values, measurable performance target, and production Firebase settings must be settled before public release."
+references = ["_bmad-output/initiative-trainer-website/ux-personal-trainer-website/DESIGN.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/EXPERIENCE.md", "_bmad-output/initiative-trainer-website/ux-personal-trainer-website/mockups/"]
+
+[[entry]]
+id = 7
+type = "story"
+title = "Refactor sweep"
+description = "Applies only cleanup identified in completed story plans and reviews without expanding feature scope."
+verify = "The static build and story checks pass after cleanup with no visible behavior regression."
+covers = []
+after = [1, 2, 3, 4, 5, 6]
+hitl = false
+risk = "low"
