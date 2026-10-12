@@ -41,7 +41,7 @@ Local prospective clients need a clear way to discover Lynette Cruz and Regal Po
 - The supplied Regal Power Fitness logo and its red, black, and gold colors define the brand direction.
 - Target New Britain and the nearby Connecticut communities Plainville, Southington, Newington, West Hartford, Bristol, and Berlin.
 - Social profile placeholders cover Instagram, Facebook, TikTok, Snapchat, X, YouTube, and LinkedIn; final URLs must come from the trainer.
-- The supplied agreement PDF must be included in deployed static assets and linked from a visible download control.
+- Link the visible agreement download control to `assets/Lynette_Cruz_One_Month_Agreement.pdf`, the corrected PDF whose package title matches the confirmed schedule.
 - The site must be mobile-first, accessible, and fast.
 - Trainer information must be updateable in content data without editing HTML templates.
 
@@ -60,7 +60,6 @@ A prospective client on a mobile device can identify Lynette Cruz and the New Br
 
 ## Open Questions
 
-- The supplied PDF package title says Tuesday & 3rd Thursday, while the confirmed schedule is Tuesday and Thursday. Should the downloadable PDF be corrected before publication, or offered unchanged?
 - What is the designated booking app and public URL, and should the site link to it?
 - What bio, credentials, phone/email, photos, review screenshots with reuse permission, and video URLs should be supplied? Which social profile URLs should replace the placeholders when available?
 - Is anything else in scope, such as a map, privacy information for embedded media, analytics, or other conversion flows?

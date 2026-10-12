@@ -1,6 +1,6 @@
 # One-Month Packages
 
-This companion records the supplied agreement details for the Services & Classes content. The confirmed group schedule is Tuesday and Thursday at 6:00 p.m. and Saturday at 9:30 a.m. The website provides a button to download and print the supplied agreement PDF.
+This companion records the supplied agreement details for the Services & Classes content. The confirmed group schedule is Tuesday and Thursday at 6:00 p.m. and Saturday at 9:30 a.m. The website provides a button to download and print `assets/Lynette_Cruz_One_Month_Agreement.pdf`, whose weekday package title is corrected to Tuesday & Thursday.
 
 ## Package Options
 
@@ -22,6 +22,6 @@ Package days and available dates are selected at purchase based on the available
 
 ## Download and Confirmation
 
-- The supplied PDF package title says Tuesday & 3rd Thursday, although the confirmed class days are Tuesday and Thursday. Correct the PDF title before adding it to site assets, or confirm that the supplied file should be offered unchanged.
+- Use the corrected `assets/Lynette_Cruz_One_Month_Agreement.pdf`; do not link the superseded `assets/Customer_One_Month_Agreement.pdf`.
 - Confirm the designated booking app and whether to link to it.
 - Place the supplied PDF in the deployed static assets and link it from a visible download button; no server-side processing is needed.
