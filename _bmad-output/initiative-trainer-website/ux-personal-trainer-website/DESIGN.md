@@ -8,7 +8,7 @@ sources:
   - ../spec-personal-trainer-website/one-month-packages.md
   - imports/regal_logo.jpeg
   - imports/Lynette_Cruz_One_Month_Agreement.pdf
-updated: 2026-10-11
+updated: 2026-10-17
 colors:
   surface-base: '#FAF9F6'
   surface-raised: '#FFFFFF'
@@ -91,7 +91,13 @@ components:
     size: '100%'
   brand-logo:
     size: 'contain'
-  site-navigation: {}
+  trainer-photo:
+    size: 'cover'
+    rounded: '{rounded.sm}'
+  site-navigation:
+    backgroundColor: '{colors.surface-dark}'
+    textColor: '{colors.primary-foreground}'
+    activeColor: '{colors.brand-gold-light}'
 ---
 
 ## Brand & Style
@@ -113,7 +119,7 @@ Use Libre Baskerville for headings and Source Sans 3 for body text. The font fam
 
 ## Layout & Spacing
 
-Use a mobile-first single-column reading flow, expanding into restrained desktop columns only where content comparison benefits. Keep sections unframed and full-width rather than stacking cards. Apply the 4/8/12/16/24/32 px spacing scale. Navigation placement and interaction style remain open for user input.
+Use a mobile-first single-column reading flow, expanding into restrained desktop columns only where content comparison benefits. Keep sections unframed and full-width rather than stacking cards. Apply the 4/8/12/16/24/32 px spacing scale. Show horizontal navigation links on desktop and an expandable navigation menu on mobile.
 
 ## Elevation & Depth
 
@@ -138,12 +144,13 @@ Use restrained corners: 4 px small, 6 px medium, and 8 px maximum. Keep package 
 - **video-embed** — preserve a 16:9 viewing area and do not crop the provider player; see [Media Gallery mockup](mockups/key-media-gallery.html).
 - **review-image** — show the complete supplied screenshot; do not crop text from a review; see [Reviews mockup](mockups/key-reviews.html).
 - **brand-logo** — use the [imported Regal Power Fitness logo](imports/regal_logo.jpeg); do not rely on it to communicate trainer name, service area, or phone; see [Home/About mockup](mockups/key-home-about.html).
-- **site-navigation** — make all required pages reachable; visual placement and interaction remain undecided pending user direction.
+- **trainer-photo** — use a trainer-approved original photo; preserve Lynette's real appearance, crop to keep the subject clear, and do not show another business's signage or apparel branding; see [Home/About mockup](mockups/key-home-about.html).
+- **site-navigation** — use a dark brand-band header with horizontal links on desktop and an expandable, keyboard-operable menu on mobile; highlight the current page in light gold. See [Home/About mockup](mockups/key-home-about.html).
 
 ## Do's and Don'ts
 
 | Do | Don't |
 | --- | --- |
 | Keep schedules, prices, contact details, and agreement terms easy to scan. | Put essential contact or local-search text inside an image. |
-| Let the supplied logo carry the decorative brand detail. | Add unrelated ornamental fitness graphics or card-heavy page sections. |
+| Let the supplied logo carry the decorative brand detail and use approved photography to add a personal connection. | Add unrelated ornamental fitness graphics, show another business's branding, or use card-heavy page sections. |
 | Use the logo alt text only when the adjacent text does not already name the brand. | Repeat identical logo text to screen readers when visible adjacent text already names the brand. |
