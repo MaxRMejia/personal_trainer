@@ -22,12 +22,14 @@ Mobile-first, responsive static website generated from Python, Jinja2 templates,
 | Surface | Reached from | Purpose | Visual reference |
 | --- | --- | --- | --- |
 | Home/About | Site entry and site navigation | Introduce Lynette Cruz, her ISSA certification, goal-focused coaching approach, and New Britain-area service; preview the confirmed group schedule and lead visitors to packages or direct contact. | [Home/About mockup](mockups/key-home-about.html) |
-| Services & Classes | Home classes/packages action and site navigation | Explain personal training by direct inquiry, group schedule, packages, material terms, and the agreement download. | [Services & Classes mockup](mockups/key-services-classes.html) |
-| Reviews | Site navigation | Present trainer-approved review screenshots. | [Reviews mockup](mockups/key-reviews.html) |
-| Media Gallery | Site navigation | Present photos and embedded YouTube/Instagram videos. | [Media Gallery mockup](mockups/key-media-gallery.html) |
-| Contact/Location | Site navigation and contact actions | Show the confirmed address, service towns, and phone/email/social contact actions. | [Contact/Location mockup](mockups/key-contact-location.html) |
+| Services & Classes | Home classes/packages action and site navigation | Explain personal training by direct inquiry, group schedule, packages, material terms, and the agreement download beneath the shared navigation and a spacious page-intro band. | [Services & Classes mockup](mockups/key-services-classes.html) |
+| Reviews | Site navigation | Present trainer-approved review screenshots beneath the shared navigation and a spacious page-intro band. | [Reviews mockup](mockups/key-reviews.html) |
+| Media Gallery | Site navigation | Present photos and embedded YouTube/Instagram videos beneath the shared navigation and a spacious page-intro band. | [Media Gallery mockup](mockups/key-media-gallery.html) |
+| Contact/Location | Site navigation and contact actions | Show the confirmed address, service towns, and phone/email/social contact actions beneath the shared navigation and a spacious page-intro band. | [Contact/Location mockup](mockups/key-contact-location.html) |
 
-All five surfaces are required and reachable through the primary navigation: Home, Services, Media Gallery, Reviews, and Contact Us. Use horizontal links on desktop and a compact expandable menu on mobile. Indicate the current page. The Home primary action leads to Services & Classes.
+All five surfaces are required and reachable through the primary navigation: Home, Services, Media Gallery, Reviews, and Contact Us. Use the same shared navigation component and markup on every page, changing only the active-page state. Its styles live in [site-navigation.css](mockups/site-navigation.css), linked by all five mockups. Use horizontal links on desktop and a compact expandable menu on mobile. Indicate the current page. The Home primary action leads to Services & Classes.
+
+Keep the primary navigation focused on page destinations. Do not repeat a phone-call link in the Home navigation; direct-call actions belong in the Home content and Contact surface.
 
 The [imported logo](imports/regal_logo.jpeg) is the brand reference for every surface; its embedded lettering does not replace searchable page text.
 
@@ -50,6 +52,7 @@ Use high-energy, motivational, direct language. Keep schedule, package, and agre
 | page-surface | All surfaces | Keep primary reading content on the light base surface. |
 | brand-band | Home/About and section breaks | Use only for brand emphasis; retain readable text contrast. |
 | brand-band-copy | Dark bands | Keep body copy white and readable; do not put essential details in logo art. |
+| page-intro | Services & Classes, Reviews, Media Gallery, Contact/Location | Give the page title and short orientation copy a generous vertical band below the shared navigation; retain at least 250 px height on mobile. |
 | secondary-copy | Supporting details | Use for captions and metadata that remain legible at zoom. |
 | brand-accent-text | Labels and small highlights | Use dark gold only on light surfaces. |
 | divider | Related content rows | Separate package or contact details without adding nested cards. |

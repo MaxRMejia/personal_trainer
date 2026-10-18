@@ -91,6 +91,9 @@ components:
     size: '100%'
   brand-logo:
     size: 'contain'
+    desktopSize: 80px
+    mobileSize: 64px
+    narrowMobileSize: 56px
   trainer-photo:
     size: 'cover'
     rounded: '{rounded.sm}'
@@ -98,6 +101,12 @@ components:
     backgroundColor: '{colors.surface-dark}'
     textColor: '{colors.primary-foreground}'
     activeColor: '{colors.brand-gold-light}'
+    minHeight: 82px
+  page-intro:
+    backgroundColor: '{colors.surface-dark}'
+    textColor: '{colors.primary-foreground}'
+    minHeight: 420px
+    mobileMinHeight: 340px
 ---
 
 ## Brand & Style
@@ -119,7 +128,7 @@ Use Libre Baskerville for headings and Source Sans 3 for body text. The font fam
 
 ## Layout & Spacing
 
-Use a mobile-first single-column reading flow, expanding into restrained desktop columns only where content comparison benefits. Keep sections unframed and full-width rather than stacking cards. Apply the 4/8/12/16/24/32 px spacing scale. Show horizontal navigation links on desktop and an expandable navigation menu on mobile.
+Use a mobile-first single-column reading flow, expanding into restrained desktop columns only where content comparison benefits. Keep sections unframed and full-width rather than stacking cards. Apply the 4/8/12/16/24/32 px spacing scale. All five mockups load the same navigation component from [site-navigation.css](mockups/site-navigation.css) and use identical navigation markup except for the current-page state. It defines an 82 px desktop header with an 80 px square logo, an 84 px mobile header with a 64 px square logo, and a 76 px narrow-mobile header with a 56 px square logo; it also reserves a stable scrollbar gutter to prevent the header from shifting horizontally between pages. Secondary-page intro bands use a 420 px minimum height on desktop and 340 px on mobile, giving page titles more of the Home hero's visual presence while preserving Home's image-led entry moment.
 
 ## Elevation & Depth
 
@@ -145,7 +154,8 @@ Use restrained corners: 4 px small, 6 px medium, and 8 px maximum. Keep package 
 - **review-image** — show the complete supplied screenshot; do not crop text from a review; see [Reviews mockup](mockups/key-reviews.html).
 - **brand-logo** — use the [imported Regal Power Fitness logo](imports/regal_logo.jpeg); do not rely on it to communicate trainer name, service area, or phone; see [Home/About mockup](mockups/key-home-about.html).
 - **trainer-photo** — use a trainer-approved original photo; preserve Lynette's real appearance, crop to keep the subject clear, and do not show another business's signage or apparel branding; see [Home/About mockup](mockups/key-home-about.html).
-- **site-navigation** — use a dark brand-band header with horizontal links on desktop and an expandable, keyboard-operable menu on mobile; highlight the current page in light gold. See [Home/About mockup](mockups/key-home-about.html).
+- **site-navigation** — use the shared [navigation stylesheet](mockups/site-navigation.css) and identical markup on all five mockups; use horizontal links on desktop and an expandable, keyboard-operable menu on mobile; highlight the current page in light gold. See [Home/About mockup](mockups/key-home-about.html).
+- **page-intro** — keep secondary-page title bands generous and vertically aligned, with enough space to echo the Home hero without making content pages feel like another landing page; see the [Services & Classes mockup](mockups/key-services-classes.html), [Media Gallery mockup](mockups/key-media-gallery.html), [Reviews mockup](mockups/key-reviews.html), and [Contact/Location mockup](mockups/key-contact-location.html).
 
 ## Do's and Don'ts
 

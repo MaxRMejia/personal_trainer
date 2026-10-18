@@ -75,7 +75,7 @@ p { margin: 0 0 16px; }
 .nav-links a { display: inline-flex; min-height: 44px; align-items: center; }
 .mobile-links a { display: block; min-height: 44px; padding-block: 10px; }
 .nav-links a:hover, .mobile-links a:hover { text-decoration: underline; }
-.nav-links a:focus-visible, .mobile-links a:focus-visible, .logo:focus-visible, .masthead-contact:focus-visible, .mobile-menu summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.nav-links a:focus-visible, .mobile-links a:focus-visible, .logo:focus-visible, .mobile-menu summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 .nav-links a[aria-current="page"], .mobile-links a[aria-current="page"] { color: var(--gold); text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
 .mobile-menu { display: none; color: var(--white); }
 .mobile-menu summary { display: flex; width: max-content; min-height: 44px; align-items: center; gap: 12px; padding: 9px 12px; border: 1px solid #777; border-radius: 4px; cursor: pointer; font-weight: 700; list-style: none; }
@@ -83,8 +83,6 @@ p { margin: 0 0 16px; }
 .mobile-menu summary::after { width: 8px; height: 8px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); content: ""; transform: rotate(45deg); }
 .mobile-menu[open] summary::after { transform: rotate(225deg); }
 .mobile-links { display: grid; gap: 14px; padding: 16px 0 4px; }
-.masthead-contact { display: inline-flex; min-height: 44px; align-items: center; color: var(--white); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-
 .hero {
   overflow: hidden;
   background: var(--night);
@@ -251,7 +249,6 @@ p { margin: 0 0 16px; }
   .nav-links { display: none; }
   .mobile-menu { display: block; }
   .mobile-menu[open] { flex-basis: 100%; }
-  .masthead-contact { font-size: .9rem; }
   .hero-inner { grid-template-columns: 1fr; gap: 32px; min-height: 0; padding-block: 48px; }
   .photo-slot { min-height: 300px; }
   .approach-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -262,19 +259,21 @@ p { margin: 0 0 16px; }
 
 @media (max-width: 430px) {
   .shell { width: calc(100% - 32px); }
-  .masthead-contact { font-size: .82rem; }
   .logo { width: 56px; }
   .credentials-inner { display: grid; gap: 6px; }
   .schedule-row { display: grid; gap: 2px; }
   .button { width: 100%; }
 }
 </style>
+<link rel="stylesheet" href="site-navigation.css">
 </head>
 <body>
 <!-- Governing spine sections: DESIGN.Brand & Style, Colors, Typography, Components; EXPERIENCE.Information Architecture, State Patterns, Accessibility Floor, Key Flows. The photo area is intentionally a placeholder pending Lynette's original trainer-approved image. -->
-<header class="masthead">
-  <div class="shell masthead-inner">
-    <img class="logo" src="../imports/regal_logo.jpeg" alt="Regal Power Fitness">
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="key-home-about.html" aria-label="Regal Power Fitness home">
+      <img class="site-nav-logo" src="../imports/regal_logo.jpeg" alt="">
+    </a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="key-home-about.html" aria-current="page">Home</a>
       <a href="key-services-classes.html">Services</a>
@@ -292,7 +291,6 @@ p { margin: 0 0 16px; }
         <a href="key-contact-location.html">Contact Us</a>
       </nav>
     </details>
-    <a class="masthead-contact" href="tel:+18603919726">Call Lynette</a>
   </div>
 </header>
 
