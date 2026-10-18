@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Personal and group training with Lynette Cruz in New Britain, Connecticut.">
 <title>Home | Regal Power Fitness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-navigation.css">
 <style>
 :root {
   --paper: #FAF9F6;
@@ -17,6 +21,10 @@
   --gold-dark: #A06010;
   --line: #D8D2CB;
   --measure: 1160px;
+  --font-display: "Playfair Display", "Libre Baskerville", Georgia, serif;
+  --font-body: "DM Sans", "Source Sans 3", Arial, sans-serif;
+  --space-section: clamp(64px, 8vw, 120px);
+  --radius-card: 24px;
 }
 
 * { box-sizing: border-box; }
@@ -27,7 +35,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 16px/1.6 "Source Sans 3", Arial, sans-serif;
+  font: 16px/1.65 var(--font-body);
 }
 
 a { color: inherit; }
@@ -38,64 +46,110 @@ a:focus-visible {
 }
 
 h1, h2, h3 {
-  font-family: "Libre Baskerville", Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.08;
+  letter-spacing: -.035em;
 }
 
 h1 {
   max-width: 12ch;
-  margin: 16px 0;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  letter-spacing: -0.035em;
+  margin: 20px 0;
+  font-size: clamp(3rem, 7vw, 6rem);
 }
 
-h2 { margin: 0 0 16px; font-size: clamp(1.65rem, 3vw, 2.35rem); }
-h3 { margin: 0 0 8px; font-size: 1.2rem; }
+h2 { margin: 0 0 20px; font-size: clamp(2rem, 3.6vw, 3rem); }
+h3 { margin: 0 0 10px; font-size: 1.3rem; }
 p { margin: 0 0 16px; }
 
 .shell { width: min(var(--measure), calc(100% - 48px)); margin-inline: auto; }
 
-.masthead {
-  background: var(--night);
-  border-bottom: 1px solid #383838;
+.site-nav {
+  position: sticky;
+  z-index: 10;
+  top: 12px;
+  width: min(1208px, calc(100% - 48px));
+  margin: 12px auto -96px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(16, 16, 16, .84);
+  box-shadow: 0 12px 32px rgba(16, 16, 16, .28);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  backdrop-filter: blur(18px) saturate(125%);
 }
 
-.masthead-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 82px;
-  gap: 24px;
+.site-nav .nav-inner { width: 100%; }
+.site-nav .nav-brand { margin-left: 24px; }
+.site-nav .nav-links { margin-right: 24px; }
+.site-nav .mobile-menu summary { margin-right: 24px; }
+.site-nav .mobile-menu summary::after { display: none; }
+.site-nav .menu-label { display: inline-flex; align-items: center; gap: 10px; }
+.site-nav .menu-icon {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 14px;
+  background: linear-gradient(var(--gold), var(--gold)) center / 100% 2px no-repeat;
+}
+.site-nav .menu-icon::before,
+.site-nav .menu-icon::after {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gold);
+  content: "";
+}
+.site-nav .menu-icon::before { top: 1px; }
+.site-nav .menu-icon::after { bottom: 1px; }
+.site-nav .nav-brand:focus-visible,
+.site-nav .nav-links a:focus-visible,
+.site-nav .mobile-links a:focus-visible,
+.site-nav .mobile-menu summary:focus-visible,
+.button:focus-visible,
+.footer-links a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
 }
 
-.logo { display: block; width: 80px; height: auto; }
-.nav-links { display: flex; align-items: center; gap: clamp(12px, 2vw, 26px); }
-.nav-links a, .mobile-links a { color: var(--white); font-size: .92rem; font-weight: 700; text-decoration: none; text-underline-offset: 6px; }
-.nav-links a { display: inline-flex; min-height: 44px; align-items: center; }
-.mobile-links a { display: block; min-height: 44px; padding-block: 10px; }
-.nav-links a:hover, .mobile-links a:hover { text-decoration: underline; }
-.nav-links a:focus-visible, .mobile-links a:focus-visible, .logo:focus-visible, .mobile-menu summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-.nav-links a[aria-current="page"], .mobile-links a[aria-current="page"] { color: var(--gold); text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
-.mobile-menu { display: none; color: var(--white); }
-.mobile-menu summary { display: flex; width: max-content; min-height: 44px; align-items: center; gap: 12px; padding: 9px 12px; border: 1px solid #777; border-radius: 4px; cursor: pointer; font-weight: 700; list-style: none; }
-.mobile-menu summary::-webkit-details-marker { display: none; }
-.mobile-menu summary::after { width: 8px; height: 8px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); content: ""; transform: rotate(45deg); }
-.mobile-menu[open] summary::after { transform: rotate(225deg); }
-.mobile-links { display: grid; gap: 14px; padding: 16px 0 4px; }
+.site-nav:has(.mobile-menu[open]) { border-radius: 16px; }
+
 .hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(720px, 92svh, 960px);
+  align-items: center;
+  isolation: isolate;
   overflow: hidden;
   background: var(--night);
   color: var(--white);
 }
 
+.hero::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(16, 16, 16, .96) 0%, rgba(16, 16, 16, .88) 42%, rgba(16, 16, 16, .52) 100%),
+    linear-gradient(0deg, rgba(16, 16, 16, .7), transparent 55%);
+  content: "";
+}
+
+.hero-background {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+}
+
 .hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
-  align-items: center;
-  gap: clamp(36px, 7vw, 96px);
-  min-height: 540px;
-  padding-block: 56px 68px;
+  width: min(var(--measure), calc(100% - 48px));
+  padding-block: 180px 160px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
 }
 
 .eyebrow {
@@ -109,8 +163,8 @@ p { margin: 0 0 16px; }
 
 .hero .lead {
   max-width: 48ch;
-  color: #F4F0E8;
-  font-size: 1.18rem;
+  color: var(--white);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
 }
 
 .service-area {
@@ -119,38 +173,34 @@ p { margin: 0 0 16px; }
   font-size: .95rem;
 }
 
-.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
 
 .button {
   display: inline-flex;
-  min-height: 50px;
+  min-height: 52px;
   align-items: center;
   justify-content: center;
-  padding: 11px 20px;
+  padding: 12px 24px;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 999px;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
 }
 
 .button-primary { background: var(--red); color: var(--white); }
-.button-secondary { border-color: #A9A39A; color: var(--white); }
+.button-secondary { border-color: var(--gold); color: var(--white); }
 .button-light { background: var(--white); color: var(--ink); }
-.button:hover { filter: brightness(1.08); }
+.button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16, 16, 16, .2); }
 
 .photo-slot {
-  position: relative;
-  display: grid;
-  min-height: 390px;
-  place-items: center;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  padding: 28px;
-  border: 1px solid #54472C;
   background:
-    linear-gradient(145deg, transparent 0 44%, rgba(176, 0, 0, .78) 44% 45%, transparent 45%),
+    linear-gradient(145deg, transparent 0 44%, rgba(176, 0, 0, .42) 44% 45%, transparent 45%),
     linear-gradient(35deg, #25211A 0 47%, #34302A 47% 72%, #171717 72%);
-  text-align: center;
 }
 
 .photo-slot::before,
@@ -167,13 +217,17 @@ p { margin: 0 0 16px; }
 .photo-slot::after { bottom: -130px; left: -70px; }
 
 .photo-caption {
-  position: relative;
+  position: absolute;
   z-index: 1;
+  right: max(24px, calc((100% - var(--measure)) / 2));
+  bottom: 28px;
   max-width: 24ch;
-  padding: 18px 20px;
+  padding: 18px 22px;
   border-left: 3px solid var(--gold);
-  background: rgba(16, 16, 16, .88);
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  background: rgba(16, 16, 16, .92);
   color: var(--white);
+  box-shadow: 0 14px 36px rgba(16, 16, 16, .28);
 }
 
 .photo-caption strong { display: block; color: var(--gold); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
@@ -197,29 +251,36 @@ p { margin: 0 0 16px; }
   text-transform: uppercase;
 }
 
-.section { padding-block: 76px; }
+.section { padding-block: var(--space-section); }
 .section-intro { max-width: 62ch; color: var(--muted); font-size: 1.08rem; }
 .section-kicker { margin-bottom: 10px; color: var(--gold-dark); font-size: .8rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 
 .approach-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-  margin-top: 36px;
+  gap: 24px;
+  margin-top: 44px;
 }
 
-.approach-item { padding-top: 16px; border-top: 2px solid var(--red); }
+.approach-item {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: 0 14px 34px rgba(16, 16, 16, .07);
+}
 .approach-item p { max-width: 32ch; margin-bottom: 0; color: var(--muted); }
 
 .schedule-band { background: var(--night); color: var(--white); }
-.schedule-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; align-items: start; }
+.schedule-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: start; }
 .schedule-layout .section-kicker { color: var(--gold); }
 .schedule-layout .section-intro { color: #E5E0D7; }
 .schedule-rows { margin: 8px 0 28px; border-top: 1px solid #4A4A4A; }
 .schedule-row { display: flex; justify-content: space-between; gap: 20px; padding: 15px 0; border-bottom: 1px solid #4A4A4A; }
 .schedule-row strong { color: var(--gold); }
 
-.local { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.local { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
 .local-detail { padding-top: 18px; border-top: 1px solid var(--line); }
 .local-detail p { margin: 0; color: var(--muted); }
 .local-detail a { font-weight: 700; text-underline-offset: 4px; }
@@ -235,37 +296,43 @@ p { margin: 0 0 16px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 12px 22px; }
 .footer-links a { color: var(--gold); text-underline-offset: 4px; }
 
-@media (max-width: 860px) {
-  .masthead-inner { flex-wrap: wrap; gap: 10px 16px; padding-block: 10px; }
-  .nav-links { display: none; }
-  .mobile-menu { display: block; }
-  .mobile-menu[open] { flex-basis: 100%; }
-}
-
 @media (max-width: 760px) {
   .shell { width: min(100% - 40px, var(--measure)); }
-  .masthead-inner { min-height: 70px; flex-wrap: wrap; gap: 10px 16px; padding-block: 10px; }
-  .logo { width: 64px; }
-  .nav-links { display: none; }
-  .mobile-menu { display: block; }
-  .mobile-menu[open] { flex-basis: 100%; }
-  .hero-inner { grid-template-columns: 1fr; gap: 32px; min-height: 0; padding-block: 48px; }
-  .photo-slot { min-height: 300px; }
+  .site-nav { width: calc(100% - 40px); margin-bottom: -94px; }
+  .site-nav .nav-brand { margin-left: 8px; }
+  .site-nav .mobile-menu summary { margin-right: 8px; }
+  .hero { min-height: max(760px, 100svh); }
+  .hero::after {
+    background:
+      linear-gradient(90deg, rgba(16, 16, 16, .94), rgba(16, 16, 16, .76)),
+      linear-gradient(0deg, rgba(16, 16, 16, .82), transparent 68%);
+  }
+  .hero-inner { width: min(100% - 40px, var(--measure)); padding-block: 170px 190px; }
+  .hero-content { max-width: 660px; }
+  h1 { font-size: clamp(2.8rem, 11vw, 4.8rem); }
+  .photo-caption { right: 20px; bottom: 20px; left: 20px; max-width: none; }
   .approach-grid { grid-template-columns: 1fr; gap: 24px; }
   .approach-item p { max-width: 54ch; }
   .schedule-layout, .local { grid-template-columns: 1fr; gap: 30px; }
-  .section { padding-block: 54px; }
+  .section { padding-block: clamp(56px, 12vw, 88px); }
 }
 
 @media (max-width: 430px) {
   .shell { width: calc(100% - 32px); }
-  .logo { width: 56px; }
+  .site-nav { width: calc(100% - 24px); margin-top: 8px; margin-bottom: -86px; }
+  .site-nav .nav-brand { margin-left: 4px; }
+  .site-nav .mobile-menu summary { margin-right: 4px; }
+  .hero-inner { width: calc(100% - 32px); padding-block: 150px 200px; }
   .credentials-inner { display: grid; gap: 6px; }
   .schedule-row { display: grid; gap: 2px; }
   .button { width: 100%; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
 </style>
-<link rel="stylesheet" href="site-navigation.css">
 </head>
 <body>
 <!-- Governing spine sections: DESIGN.Brand & Style, Colors, Typography, Components; EXPERIENCE.Information Architecture, State Patterns, Accessibility Floor, Key Flows. The photo area is intentionally a placeholder pending Lynette's original trainer-approved image. -->
@@ -282,7 +349,7 @@ p { margin: 0 0 16px; }
       <a href="key-contact-location.html">Contact Us</a>
     </nav>
     <details class="mobile-menu">
-      <summary>Menu</summary>
+      <summary><span class="menu-label"><span class="menu-icon" aria-hidden="true"></span>Menu</span></summary>
       <nav class="mobile-links" aria-label="Main navigation">
         <a href="key-home-about.html" aria-current="page">Home</a>
         <a href="key-services-classes.html">Services</a>
@@ -296,8 +363,11 @@ p { margin: 0 0 16px; }
 
 <main>
   <section class="hero">
+    <div class="hero-background" aria-hidden="true">
+      <div class="photo-slot"></div>
+    </div>
     <div class="shell hero-inner">
-      <div>
+      <div class="hero-content">
         <p class="eyebrow">New Britain, Connecticut · Personal &amp; Group Training</p>
         <h1>Training built around your goals.</h1>
         <p class="lead">Lynette creates personalized, varied workouts with thoughtful attention to form and body mechanics—so every session has a purpose and keeps you motivated.</p>
@@ -307,12 +377,10 @@ p { margin: 0 0 16px; }
           <a class="button button-secondary" href="tel:+18603919726">Call 860-391-9726</a>
         </div>
       </div>
-      <div class="photo-slot" role="img" aria-label="Placeholder for an approved training photo of Lynette">
-        <div class="photo-caption">
-          <strong>Trainer photo coming soon</strong>
-          <span>Replace with Lynette's original photo after the background edit is approved.</span>
-        </div>
-      </div>
+    </div>
+    <div class="photo-caption">
+      <strong>Trainer photo coming soon</strong>
+      <span>Replace with Lynette's original photo after the background edit is approved.</span>
     </div>
   </section>
 
