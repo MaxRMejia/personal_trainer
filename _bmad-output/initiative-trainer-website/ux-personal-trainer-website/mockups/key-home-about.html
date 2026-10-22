@@ -8,111 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-theme.css">
 <link rel="stylesheet" href="site-navigation.css">
 <style>
-:root {
-  --paper: #FAF9F6;
-  --white: #FFFFFF;
-  --ink: #181818;
-  --muted: #57524E;
-  --night: #101010;
-  --red: #B00000;
-  --gold: #F0D080;
-  --gold-dark: #A06010;
-  --line: #D8D2CB;
-  --measure: 1160px;
-  --font-display: "Playfair Display", "Libre Baskerville", Georgia, serif;
-  --font-body: "DM Sans", "Source Sans 3", Arial, sans-serif;
-  --space-section: clamp(64px, 8vw, 120px);
-  --radius-card: 24px;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font: 16px/1.65 var(--font-body);
-}
-
-a { color: inherit; }
-
-a:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 4px;
-}
-
-h1, h2, h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -.035em;
-}
-
-h1 {
-  max-width: 12ch;
-  margin: 20px 0;
-  font-size: clamp(3rem, 7vw, 6rem);
-}
-
-h2 { margin: 0 0 20px; font-size: clamp(2rem, 3.6vw, 3rem); }
-h3 { margin: 0 0 10px; font-size: 1.3rem; }
-p { margin: 0 0 16px; }
-
 .shell { width: min(var(--measure), calc(100% - 48px)); margin-inline: auto; }
-
-.site-nav {
-  position: sticky;
-  z-index: 10;
-  top: 12px;
-  width: min(1208px, calc(100% - 48px));
-  margin: 12px auto -96px;
-  border: 0;
-  border-radius: 12px;
-  background: rgba(16, 16, 16, .84);
-  box-shadow: 0 12px 32px rgba(16, 16, 16, .28);
-  -webkit-backdrop-filter: blur(18px) saturate(125%);
-  backdrop-filter: blur(18px) saturate(125%);
-}
-
-.site-nav .nav-inner { width: 100%; }
-.site-nav .nav-brand { margin-left: 24px; }
-.site-nav .nav-links { margin-right: 24px; }
-.site-nav .mobile-menu summary { margin-right: 24px; }
-.site-nav .mobile-menu summary::after { display: none; }
-.site-nav .menu-label { display: inline-flex; align-items: center; gap: 10px; }
-.site-nav .menu-icon {
-  position: relative;
-  display: inline-block;
-  width: 18px;
-  height: 14px;
-  background: linear-gradient(var(--gold), var(--gold)) center / 100% 2px no-repeat;
-}
-.site-nav .menu-icon::before,
-.site-nav .menu-icon::after {
-  position: absolute;
-  right: 0;
-  left: 0;
-  height: 2px;
-  background: var(--gold);
-  content: "";
-}
-.site-nav .menu-icon::before { top: 1px; }
-.site-nav .menu-icon::after { bottom: 1px; }
-.site-nav .nav-brand:focus-visible,
-.site-nav .nav-links a:focus-visible,
-.site-nav .mobile-links a:focus-visible,
-.site-nav .mobile-menu summary:focus-visible,
-.button:focus-visible,
-.footer-links a:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 4px;
-}
-
-.site-nav:has(.mobile-menu[open]) { border-radius: 16px; }
 
 .hero {
   position: relative;
@@ -174,25 +73,6 @@ p { margin: 0 0 16px; }
 }
 
 .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
-
-.button {
-  display: inline-flex;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
-}
-
-.button-primary { background: var(--red); color: var(--white); }
-.button-secondary { border-color: var(--gold); color: var(--white); }
-.button-light { background: var(--white); color: var(--ink); }
-.button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16, 16, 16, .2); }
 
 .photo-slot {
   position: absolute;
@@ -298,9 +178,6 @@ p { margin: 0 0 16px; }
 
 @media (max-width: 760px) {
   .shell { width: min(100% - 40px, var(--measure)); }
-  .site-nav { width: calc(100% - 40px); margin-bottom: -94px; }
-  .site-nav .nav-brand { margin-left: 8px; }
-  .site-nav .mobile-menu summary { margin-right: 8px; }
   .hero { min-height: max(760px, 100svh); }
   .hero::after {
     background:
@@ -319,19 +196,12 @@ p { margin: 0 0 16px; }
 
 @media (max-width: 430px) {
   .shell { width: calc(100% - 32px); }
-  .site-nav { width: calc(100% - 24px); margin-top: 8px; margin-bottom: -86px; }
-  .site-nav .nav-brand { margin-left: 4px; }
-  .site-nav .mobile-menu summary { margin-right: 4px; }
   .hero-inner { width: calc(100% - 32px); padding-block: 150px 200px; }
   .credentials-inner { display: grid; gap: 6px; }
   .schedule-row { display: grid; gap: 2px; }
   .button { width: 100%; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: .01ms !important; }
-}
 </style>
 </head>
 <body>
@@ -349,7 +219,7 @@ p { margin: 0 0 16px; }
       <a href="key-contact-location.html">Contact Us</a>
     </nav>
     <details class="mobile-menu">
-      <summary><span class="menu-label"><span class="menu-icon" aria-hidden="true"></span>Menu</span></summary>
+      <summary>Menu</summary>
       <nav class="mobile-links" aria-label="Main navigation">
         <a href="key-home-about.html" aria-current="page">Home</a>
         <a href="key-services-classes.html">Services</a>

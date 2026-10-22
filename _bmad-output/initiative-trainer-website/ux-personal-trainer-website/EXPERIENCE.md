@@ -8,7 +8,7 @@ sources:
   - ../spec-personal-trainer-website/one-month-packages.md
   - imports/regal_logo.jpeg
   - imports/Lynette_Cruz_One_Month_Agreement.pdf
-updated: 2026-10-17
+updated: 2026-10-21
 ---
 
 # Regal Power Fitness - Experience Spine
@@ -22,12 +22,12 @@ Mobile-first, responsive static website generated from Python, Jinja2 templates,
 | Surface | Reached from | Purpose | Visual reference |
 | --- | --- | --- | --- |
 | Home/About | Site entry and site navigation | Introduce Lynette Cruz, her ISSA certification, goal-focused coaching approach, and New Britain-area service; preview the confirmed group schedule and lead visitors to packages or direct contact. | [Home/About mockup](mockups/key-home-about.html) |
-| Services & Classes | Home classes/packages action and site navigation | Explain personal training by direct inquiry, group schedule, packages, material terms, and the agreement download beneath the shared navigation and a spacious page-intro band. | [Services & Classes mockup](mockups/key-services-classes.html) |
+| Services & Classes | Home classes/packages action and site navigation | Explain personal training by direct inquiry, group schedule, two one-month packages, material terms, and the pending agreement beneath the shared navigation and a compact branded hero. | [Services & Classes mockup](mockups/key-services-classes.html) |
 | Reviews | Site navigation | Present trainer-approved review screenshots beneath the shared navigation and a spacious page-intro band. | [Reviews mockup](mockups/key-reviews.html) |
 | Media Gallery | Site navigation | Present photos and embedded YouTube/Instagram videos beneath the shared navigation and a spacious page-intro band. | [Media Gallery mockup](mockups/key-media-gallery.html) |
 | Contact/Location | Site navigation and contact actions | Show the confirmed address, service towns, and phone/email/social contact actions beneath the shared navigation and a spacious page-intro band. | [Contact/Location mockup](mockups/key-contact-location.html) |
 
-All five surfaces are required and reachable through the primary navigation: Home, Services, Media Gallery, Reviews, and Contact Us. Use the same shared navigation component and markup on every page, changing only the active-page state. Its styles live in [site-navigation.css](mockups/site-navigation.css), linked by all five mockups. Use horizontal links on desktop and a compact expandable menu on mobile. Indicate the current page. The Home primary action leads to Services & Classes.
+All five surfaces are required and reachable through the primary navigation: Home, Services, Media Gallery, Reviews, and Contact Us. Use the same shared navigation component and markup on every page, changing only the active-page state. Its styles live in [site-navigation.css](mockups/site-navigation.css), linked by all five mockups. It uses the floating smoked-glass treatment established on Home. Use horizontal links on desktop and a compact expandable menu with a hamburger icon on mobile. Indicate the current page. The Home primary action leads to Services & Classes.
 
 Keep the primary navigation focused on page destinations. Do not repeat a phone-call link in the Home navigation; direct-call actions belong in the Home content and Contact surface.
 
@@ -52,14 +52,16 @@ Use high-energy, motivational, direct language. Keep schedule, package, and agre
 | page-surface | All surfaces | Keep primary reading content on the light base surface. |
 | brand-band | Home/About and section breaks | Use only for brand emphasis; retain readable text contrast. |
 | brand-band-copy | Dark bands | Keep body copy white and readable; do not put essential details in logo art. |
-| page-intro | Services & Classes, Reviews, Media Gallery, Contact/Location | Give the page title and short orientation copy a generous vertical band below the shared navigation; retain at least 250 px height on mobile. |
+| page-intro | Reviews, Media Gallery, Contact/Location | Give the page title and short orientation copy a generous vertical band below the shared navigation; retain at least 250 px height on mobile. |
 | secondary-copy | Supporting details | Use for captions and metadata that remain legible at zoom. |
 | brand-accent-text | Labels and small highlights | Use dark gold only on light surfaces. |
 | divider | Related content rows | Separate package or contact details without adding nested cards. |
 | home-classes-packages-action | Home/About | Navigate to Services & Classes. |
 | contact-action | Home, Services & Classes, Contact/Location | Phone/email actions contact Lynette directly; social actions appear only when real profile URLs are supplied. No booking-app destination. |
-| agreement-download | Services & Classes | Download the revised PDF for saving/printing only after the trainer replaces the current file and removes the obsolete app-booking sentence. |
-| package-comparison | Services & Classes | Expose package price, schedule, allowance, and terms without requiring a hidden interaction. |
+| agreement-download | Services & Classes | Keep the action visibly disabled with the pending notice until the trainer supplies the revised PDF without the obsolete app-booking sentence; then enable a static download. |
+| package-comparison | Services & Classes | Present both one-month options as responsive cards with visible price, schedule, class allowance, direct-contact actions, and package terms. Do not imply checkout, booking, or recurring billing. |
+| policy-list | Services & Classes | Present the existing pre-class policy sentences as four separate readable items; keep the agreement notice and disabled download adjacent. |
+| contact-band | Services & Classes | Repeat the confirmed phone and email as prominent direct-contact links; do not suggest online booking. |
 | video-embed | Media Gallery | Load the requested embeds immediately when the gallery loads; provide accessible titles. |
 | review-image | Reviews | Use supplied screenshots only after source and reuse permission are confirmed; provide useful alternative text. |
 | brand-logo | All surfaces | Use the supplied mark; keep trainer name, service area, and phone as separate text. |
@@ -72,7 +74,7 @@ Use high-energy, motivational, direct language. Keep schedule, package, and agre
 | --- | --- | --- |
 | Contact detail missing | Contact/Location | Keep explicit content placeholders in data, do not render nonfunctional links as live contact actions, and block launch until a real phone or email destination is configured. |
 | Social URL missing | Contact/Location | The supplied profile names may appear as plain text; omit active links until Lynette confirms exact profile URLs. Never link to `#` or a placeholder URL. |
-| Revised agreement missing | Services & Classes | Do not publish the existing PDF; block launch until the trainer supplies the revised file with the obsolete booking-app sentence removed. Enable the download only then. |
+| Revised agreement missing | Services & Classes | Do not publish the existing PDF. Keep the explanatory notice and a visibly disabled, non-interactive download control until the trainer supplies the revised file with the obsolete booking-app sentence removed. Enable a static download only then. |
 | Trainer photo pending | Home/About | Keep the photo area as a clearly identified placeholder until Lynette approves the original/background edit. Do not publish the low-resolution screenshot or imagery that reveals another gym's branding. |
 | Approved photography missing | Media Gallery | Do not invent or publish stock imagery as trainer photography; final photo direction/assets remain open. |
 | Review screenshot permission missing | Reviews | Do not publish unapproved screenshot content; obtain source and reuse permission first. |
@@ -87,7 +89,7 @@ Use high-energy, motivational, direct language. Keep schedule, package, and agre
 - Provide a skip link, visible unobscured keyboard focus, logical tab order, descriptive page titles, and keyboard-operable navigation. The mobile menu opens and closes with its native disclosure control; following a link navigates to that page.
 - Ensure interactive targets meet WCAG 2.2 minimum target size or its spacing exception; navigation links and its menu control are at least 44 px, and primary actions are at least 48 px high.
 - Do not introduce a booking app, online registration flow, or contact form in this phase.
-- The agreement action downloads a static PDF; the file must be the trainer-updated version.
+- The agreement action remains disabled until the trainer-updated PDF is ready, then downloads a static PDF only.
 - Video embeds load immediately as already decided; include descriptive iframe titles and do not self-host video.
 - All links and controls work by keyboard, show visible focus, and have descriptive accessible names.
 
@@ -97,7 +99,7 @@ Use high-energy, motivational, direct language. Keep schedule, package, and agre
 - Verify no content loss or two-dimensional scrolling at 320 CSS px and at 400% zoom from a 1280 CSS px viewport; verify text at 200% enlargement does not clip or lose functionality.
 - Keep the trainer name, address, service area, and phone as selectable text, not image-only content.
 - Preserve logical heading order, landmarks, page titles, and reading order across all five surfaces.
-- Ensure package information remains understandable on narrow screens and at zoomed text sizes.
+- Ensure package cards remain understandable in a single-column mobile layout and at zoomed text sizes; do not use color alone to distinguish the options or their controls.
 - Give the logo concise alternative text only when adjacent text does not repeat it. Make review text, rating, and attribution available in the reading flow instead of relying on screenshot alt text alone.
 - Give review images meaningful alternatives; videos have descriptive titles, keyboard-operable native controls, and captions or equivalent access to meaningful prerecorded speech.
 - Before publishing the agreement, verify selectable text, document tags and reading order, and understandable printed fields/signature areas.

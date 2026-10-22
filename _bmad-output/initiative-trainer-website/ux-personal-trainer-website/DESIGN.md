@@ -8,7 +8,7 @@ sources:
   - ../spec-personal-trainer-website/one-month-packages.md
   - imports/regal_logo.jpeg
   - imports/Lynette_Cruz_One_Month_Agreement.pdf
-updated: 2026-10-17
+updated: 2026-10-21
 colors:
   surface-base: '#FAF9F6'
   surface-raised: '#FFFFFF'
@@ -22,24 +22,25 @@ colors:
   brand-gold-light: '#F0D080'
 typography:
   display:
-    fontFamily: 'Libre Baskerville'
+    fontFamily: 'Playfair Display'
     fontSize: 40px
     fontWeight: '700'
-    lineHeight: '1.2'
+    lineHeight: '1.08'
   display-mobile:
-    fontFamily: 'Libre Baskerville'
+    fontFamily: 'Playfair Display'
     fontSize: 32px
     fontWeight: '700'
-    lineHeight: '1.2'
+    lineHeight: '1.08'
   body:
-    fontFamily: 'Source Sans 3'
+    fontFamily: 'DM Sans'
     fontSize: 16px
     fontWeight: '400'
-    lineHeight: '1.6'
+    lineHeight: '1.65'
 rounded:
-  sm: 4px
-  md: 6px
-  lg: 8px
+  sm: 12px
+  md: 18px
+  lg: 24px
+  pill: 999px
 spacing:
   '1': 4px
   '2': 8px
@@ -69,22 +70,22 @@ components:
   home-classes-packages-action:
     backgroundColor: '{colors.primary}'
     textColor: '{colors.primary-foreground}'
-    rounded: '{rounded.md}'
-    height: 48px
+    rounded: '{rounded.pill}'
+    height: 52px
   contact-action:
     backgroundColor: '{colors.primary}'
     textColor: '{colors.primary-foreground}'
-    rounded: '{rounded.md}'
-    height: 48px
+    rounded: '{rounded.pill}'
+    height: 52px
   agreement-download:
     backgroundColor: '{colors.surface-raised}'
     textColor: '{colors.ink-primary}'
-    rounded: '{rounded.md}'
+    rounded: '{rounded.pill}'
     height: 48px
   package-comparison:
     backgroundColor: '{colors.surface-raised}'
     textColor: '{colors.ink-primary}'
-    rounded: '{rounded.sm}'
+    rounded: '{rounded.lg}'
   video-embed:
     size: '16:9'
   review-image:
@@ -98,10 +99,11 @@ components:
     size: 'cover'
     rounded: '{rounded.sm}'
   site-navigation:
-    backgroundColor: '{colors.surface-dark}'
+    backgroundColor: 'rgba(16, 16, 16, 0.84)'
     textColor: '{colors.primary-foreground}'
     activeColor: '{colors.brand-gold-light}'
     minHeight: 82px
+    rounded: '{rounded.sm}'
   page-intro:
     backgroundColor: '{colors.surface-dark}'
     textColor: '{colors.primary-foreground}'
@@ -124,19 +126,19 @@ Regal Power Fitness is an energetic personal-training brand anchored by its supp
 
 ## Typography
 
-Use Libre Baskerville for headings and Source Sans 3 for body text. The font families are user-approved; the listed sizes are provisional desktop/mobile defaults and use fixed values rather than viewport scaling. Keep body copy comfortable for reading package terms and contact details.
+Use Playfair Display for editorial headings and DM Sans for body and interface text, with Libre Baskerville/Georgia and Source Sans 3/Arial fallbacks. Load the selected fonts through Google Fonts. Scale headings responsively while keeping body copy at 16 px or larger for package terms and contact details.
 
 ## Layout & Spacing
 
-Use a mobile-first single-column reading flow, expanding into restrained desktop columns only where content comparison benefits. Keep sections unframed and full-width rather than stacking cards. Apply the 4/8/12/16/24/32 px spacing scale. All five mockups load the same navigation component from [site-navigation.css](mockups/site-navigation.css) and use identical navigation markup except for the current-page state. It defines an 82 px desktop header with an 80 px square logo, an 84 px mobile header with a 64 px square logo, and a 76 px narrow-mobile header with a 56 px square logo; it also reserves a stable scrollbar gutter to prevent the header from shifting horizontally between pages. Secondary-page intro bands use a 420 px minimum height on desktop and 340 px on mobile, giving page titles more of the Home hero's visual presence while preserving Home's image-led entry moment.
+Use a mobile-first single-column reading flow, expanding into restrained desktop columns where comparison benefits. Use the 4/8/12/16/24/32 px spacing scale and generous section spacing. All five mockups load the shared navigation from [site-navigation.css](mockups/site-navigation.css); its floating smoked-glass surface, blur, inset, logo sizing (80 px desktop, 64 px mobile, 56 px narrow mobile), active state, and mobile disclosure stay consistent with Home. The shared theme in [site-theme.css](mockups/site-theme.css) owns palette, typography, spacing, radii, and button foundations for the modernized Home and Services mockups. The Services hero is intentionally compact, while Home retains its image-led entry moment.
 
 ## Elevation & Depth
 
-Prefer contrast between light surfaces and dark bands over shadows. Use borders only to distinguish tables or package comparisons; avoid decorative elevation.
+Use soft, low-opacity shadows to lift package cards and callouts; retain subtle borders for definition. Keep the palette contrast—not shadow—responsible for hierarchy.
 
 ## Shapes
 
-Use restrained corners: 4 px small, 6 px medium, and 8 px maximum. Keep package and service information in clear rows or open sections, not nested cards.
+Use 12 px for compact surfaces, 18 px for grouped policy items, 24 px for cards, and pill-shaped buttons. Do not nest cards.
 
 ## Components
 
@@ -148,19 +150,22 @@ Use restrained corners: 4 px small, 6 px medium, and 8 px maximum. Keep package 
 - **divider** — subtle one-pixel separation between related rows.
 - **home-classes-packages-action** — primary red action with white text, sized for touch; see [Home/About mockup](mockups/key-home-about.html).
 - **contact-action** — high-contrast direct-contact action; render only when a real destination is configured; see [Contact/Location mockup](mockups/key-contact-location.html).
-- **agreement-download** — outlined/light secondary action for downloading the revised agreement; see [Services & Classes mockup](mockups/key-services-classes.html).
-- **package-comparison** — use readable rows or a narrow-screen stacked comparison for price, schedule, allowance, and terms; see [Services & Classes mockup](mockups/key-services-classes.html).
+- **agreement-download** — show a disabled, non-interactive control while the revised agreement is pending; enable a static PDF download only when the approved file is ready.
+- **package-comparison** — use two responsive cards for price, schedule, allowance, and contact actions; distinguish one with the dark brand surface. Keep all terms visible; see [Services & Classes mockup](mockups/key-services-classes.html).
+- **policy-list** — split existing policies into readable, icon-led items; use a soft callout for the pending agreement and keep its unavailable download visibly disabled.
+- **contact-band** — close Services with a dark brand band and prominent, palette-styled phone/email links.
 - **video-embed** — preserve a 16:9 viewing area and do not crop the provider player; see [Media Gallery mockup](mockups/key-media-gallery.html).
 - **review-image** — show the complete supplied screenshot; do not crop text from a review; see [Reviews mockup](mockups/key-reviews.html).
 - **brand-logo** — use the [imported Regal Power Fitness logo](imports/regal_logo.jpeg); do not rely on it to communicate trainer name, service area, or phone; see [Home/About mockup](mockups/key-home-about.html).
 - **trainer-photo** — use a trainer-approved original photo; preserve Lynette's real appearance, crop to keep the subject clear, and do not show another business's signage or apparel branding; see [Home/About mockup](mockups/key-home-about.html).
 - **site-navigation** — use the shared [navigation stylesheet](mockups/site-navigation.css) and identical markup on all five mockups; use horizontal links on desktop and an expandable, keyboard-operable menu on mobile; highlight the current page in light gold. See [Home/About mockup](mockups/key-home-about.html).
-- **page-intro** — keep secondary-page title bands generous and vertically aligned, with enough space to echo the Home hero without making content pages feel like another landing page; see the [Services & Classes mockup](mockups/key-services-classes.html), [Media Gallery mockup](mockups/key-media-gallery.html), [Reviews mockup](mockups/key-reviews.html), and [Contact/Location mockup](mockups/key-contact-location.html).
+- **page-intro** — keep secondary-page title bands generous and vertically aligned, with enough space to echo the Home hero without making content pages feel like another landing page; see the [Media Gallery mockup](mockups/key-media-gallery.html), [Reviews mockup](mockups/key-reviews.html), and [Contact/Location mockup](mockups/key-contact-location.html). Services uses its own compact branded hero.
 
 ## Do's and Don'ts
 
 | Do | Don't |
 | --- | --- |
 | Keep schedules, prices, contact details, and agreement terms easy to scan. | Put essential contact or local-search text inside an image. |
-| Let the supplied logo carry the decorative brand detail and use approved photography to add a personal connection. | Add unrelated ornamental fitness graphics, show another business's branding, or use card-heavy page sections. |
+| Let the supplied logo carry the decorative brand detail and use approved photography to add a personal connection. | Add unrelated ornamental fitness graphics, show another business's branding, or use cards outside focused package and policy groupings. |
 | Use the logo alt text only when the adjacent text does not already name the brand. | Repeat identical logo text to screen readers when visible adjacent text already names the brand. |
+| Reserve raised cards for package comparison and tightly related policy items. | Invent package features, benefits, badges, testimonials, discounts, or recurring-billing language. |

@@ -1,29 +1,25 @@
 # Validation Report — Regal Power Fitness
 
-- **DESIGN.md:** `_bmad-output/initiative-trainer-website/ux-personal-trainer-website/DESIGN.md`
-- **EXPERIENCE.md:** `_bmad-output/initiative-trainer-website/ux-personal-trainer-website/EXPERIENCE.md`
-- **Run at:** 2026-10-11
+- **DESIGN.md:** `DESIGN.md`
+- **EXPERIENCE.md:** `EXPERIENCE.md`
+- **Run at:** 2026-10-21T22:48:33-04:00
 
 ## Overall verdict
 
-The UX pair is now a usable downstream contract: all six spec capabilities map to named-protagonist flows, components match across visual and behavioral spines, source links and five selected surface mockups resolve, and the design token linter reports zero errors and warnings. The reviewers' high and medium findings were fixed or converted to explicit, bounded launch inputs. Navigation and photo direction remain user-deferred; the updated agreement, real contact destinations, media captions, and embed privacy details remain required before launch.
+The UX spines and Services & Classes mockup provide a coherent, implementable direction. The eight rubric dimensions are adequate or strong; all three actionable reviewer findings were fixed and verified before this report, leaving no known open findings from the selected reviews.
 
-The accessibility review found no confirmed site failures because no site is implemented yet. It confirmed the intended text-color pairings pass AA and the spines now state concrete implementation checks for reflow, keyboard behavior, media alternatives, and the agreement PDF.
+The Services refresh stays within the user-approved mockup copy and brand constraints. A recommendation based on the separately excluded requirements source was not adopted. The revised agreement, trainer-approved photography, social profile URLs, and video caption/privacy details remain launch inputs—not defects introduced by this refresh.
 
 ## Category verdicts
 
-- Flow coverage — strong
-- Token completeness — strong
-- Component coverage — strong
+- Flow coverage — adequate
+- Token completeness — adequate
+- Component coverage — adequate
 - State coverage — adequate
-- Visual reference coverage — strong (five surface mockups linked)
+- Visual reference coverage — strong
 - Bloat & overspecification — strong
 - Inheritance discipline — adequate
 - Shape fit — strong
-
-## Accessibility review
-
-The contract-level review initially found five moderate and two low risks. The spines now cover reflow/zoom checks, keyboard and focus requirements, review-image text equivalents, PDF accessibility verification, and media failure behavior. Confirm captions and privacy information for the chosen embeds; test the actual site and trainer-revised PDF before release.
 
 ## Findings by severity
 
@@ -31,30 +27,64 @@ The contract-level review initially found five moderate and two low risks. The s
 
 None.
 
-### High (0 active; 1 resolved)
+### High (0)
 
-**Flow coverage — Missing capability journeys** (`EXPERIENCE.md`, Key Flows)
-The initial draft had no journey for reviews/media or local contact. Added a second named-protagonist flow and mapped both flows to CAP-1 through CAP-6; each includes numbered steps, a climax, and a failure path.
+None.
 
-### Medium (1 active; 7 resolved)
+### Medium (3; all resolved)
 
-**Media — Captions and privacy** (`EXPERIENCE.md`, Open Inputs)
-Captions for selected videos and privacy information for immediate third-party embeds still need confirmation. Embed failure fallbacks are specified.
+**Component coverage — Tablet package actions wrapped into tall controls (§ Services & Classes responsive layout)**
 
-**Resolved during review:** Added contrast ratios for all load-bearing text/surface pairs; added 320 CSS px, 200% text, and 400% zoom checks; documented navigation safeguards, target size, image alternatives, video controls, PDF accessibility verification, and media failure behavior; clarified the agreement's current revision status.
+The 761–960 px contact-action layout rule was nested inside the 760 px mobile query, so it could not apply. The tablet rule is now top-level; package actions were verified at 761–960 px.
+Fix: Resolved in `mockups/key-services-classes.html`.
 
-### Low (1 active; 1 resolved)
+**Accessibility — Repeated navigation had no keyboard bypass (§ Services & Classes page start)**
 
-**Divider contrast** (`DESIGN.md`, Colors)
-The subtle divider is explicitly decorative and must not alone identify a control, boundary, or state. Bright gold stays off light surfaces.
+A skip link now precedes the shared navigation and targets the main landmark. Keyboard focus was verified on the skip link.
+Fix: Resolved in `mockups/key-services-classes.html`.
 
-**Third-party embeds** (`EXPERIENCE.md`, Open Inputs)
-Immediate loading is the confirmed behavior; privacy information is retained as an open input and is counted with the medium media finding above.
+**Accessibility — Reduced-motion users still received hover movement (§ shared button and package-card hover states)**
 
-## Other launch inputs
+Reduced-motion styling now removes button and card translation while retaining non-motion feedback.
+Fix: Resolved in `mockups/site-theme.css` and `mockups/key-services-classes.html`.
 
-- Navigation pattern remains user-deferred; apply the documented keyboard and focus safeguards after it is chosen.
-- The trainer must supply the revised accessible agreement PDF, real phone/email/social URLs, approved photos, and review screenshot reuse permissions before those actions or assets are published.
+### Low (0)
+
+None.
+
+## Rubric judgments
+
+### Flow coverage — adequate
+
+Both named-protagonist journeys have numbered steps, a climax, and applicable failure paths. The package journey covers comparison, agreement availability, and direct contact. It remains contingent on real contact details and the revised agreement being ready for launch.
+
+### Token completeness — adequate
+
+The DESIGN spine defines explicit palette, typography, radius, spacing, and component tokens; its documented text/background pairs meet AA contrast. Shared theme styles provide the focus indicator and reduced-motion behavior. Token-to-component references are present in the spine.
+
+### Component coverage — adequate
+
+The Services package comparison, policy list, agreement download, and contact band have visual and behavioral rules in both spines. The tablet action regression identified by the reviewer is fixed and verified.
+
+### State coverage — adequate
+
+The spines cover missing agreement, trainer photo, social URLs, contact information, and media failures. Focus, mobile navigation, and reduced-motion behavior are also specified or implemented. Video caption availability and third-party embed privacy remain explicit open inputs.
+
+### Visual reference coverage — strong
+
+All five page mockups are linked from the information architecture, and shared navigation/theme styles are referenced from the visual spine. The Services mockup illustrates the package, policy, agreement, and contact patterns.
+
+### Bloat & overspecification — strong
+
+The Services refresh preserves the requested copy and avoids adding unapproved package features, claims, pricing, booking behavior, or a third personal-training card. The user-excluded requirements-source suggestion was recorded as out of scope and not added.
+
+### Inheritance discipline — adequate
+
+Both spines include source lists, and their component names and token references align. The Services page was intentionally validated against its existing mockup copy, not the separately excluded requirements source.
+
+### Shape fit — strong
+
+DESIGN follows the canonical visual-system sections; EXPERIENCE includes the required foundation, information architecture, voice, component and state patterns, interaction primitives, accessibility floor, key flows, and responsive guidance.
 
 ## Reviewer files
 

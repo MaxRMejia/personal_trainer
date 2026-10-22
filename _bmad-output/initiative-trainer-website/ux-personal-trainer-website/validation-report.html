@@ -1,28 +1,243 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Regal Power Fitness — UX Validation</title>
+<title>UX Design Validation: Regal Power Fitness</title>
 <style>
-:root{--bg:#fafaf9;--surface:#fff;--border:#e7e5e4;--text:#1c1917;--muted:#57524e;--red:#b00000;--gold:#a06010;--good:#166534;--warn:#92400e;--open:#9a3412}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Source Sans 3",system-ui,sans-serif}.container{max-width:960px;margin:auto;padding:32px 24px 64px}h1,h2,h3{font-family:"Libre Baskerville",Georgia,serif;line-height:1.3}h1{font-size:28px}h2{font-size:20px}h3{font:600 16px "Source Sans 3",system-ui,sans-serif}.meta,.muted{color:var(--muted);font-size:14px}.summary,.panel{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:18px 22px;margin:18px 0}.summary{border-left:4px solid var(--red)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.pill{display:inline-block;border-radius:4px;padding:2px 8px;font-size:13px;font-weight:700}.strong{color:var(--good)}.adequate{color:var(--warn)}.open{color:var(--open)}.finding{border-top:1px solid var(--border);padding:12px 0}.finding:first-child{border:0}.count{color:var(--red);font-weight:700}footer{border-top:1px solid var(--border);margin-top:32px;padding-top:14px;font-size:13px;color:var(--muted)}a{color:var(--red)}
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --border: #e7e5e4;
+    --text: #1c1917;
+    --muted: #78716c;
+
+    --verdict-strong: #16a34a;
+    --verdict-adequate: #65a30d;
+    --verdict-thin: #d97706;
+    --verdict-broken: #dc2626;
+
+    --sev-low: #64748b;
+    --sev-medium: #ca8a04;
+    --sev-high: #ea580c;
+    --sev-critical: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
+  header.report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .title h1 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .title .subtitle { color: var(--muted); font-size: 13px; margin-top: 4px; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  .synthesis {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--muted);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    font-size: 15.5px;
+  }
+  .synthesis p { margin: 0 0 10px; }
+  .synthesis p:last-child { margin-bottom: 0; }
+  .dimension-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .dim-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .dim-card .dim-name { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .dim-card .dim-verdict { font-size: 14px; font-weight: 600; }
+  section.dimension, section.reviewer-section { margin-bottom: 14px; }
+  section.dimension details, section.reviewer-section details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  section summary {
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  section summary::-webkit-details-marker { display: none; }
+  section summary::before {
+    content: "▸";
+    display: inline-block;
+    color: var(--muted);
+    transition: transform 0.15s ease;
+  }
+  section details[open] summary::before { transform: rotate(90deg); }
+  section summary h2 {
+    display: inline;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    flex: 1;
+  }
+  .verdict-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: white;
+  }
+  .verdict-strong { background: var(--verdict-strong); }
+  .verdict-adequate { background: var(--verdict-adequate); }
+  .verdict-thin { background: var(--verdict-thin); }
+  .verdict-broken { background: var(--verdict-broken); }
+  .dim-body { padding: 4px 20px 18px; }
+  .dim-judgment { color: var(--text); font-size: 14.5px; }
+  .dim-judgment p { margin: 0 0 10px; }
+  .findings-list { padding: 0 20px 4px; }
+  article.finding {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+  }
+  article.finding:first-child { border-top: none; }
+  article.finding header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .badge {
+    font-size: 10.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+  .badge-sev-low { background: rgba(100, 116, 139, 0.12); color: var(--sev-low); }
+  .badge-sev-medium { background: rgba(202, 138, 4, 0.14); color: var(--sev-medium); }
+  .badge-sev-high { background: rgba(234, 88, 12, 0.14); color: var(--sev-high); }
+  .badge-sev-critical { background: rgba(220, 38, 38, 0.14); color: var(--sev-critical); }
+  .finding-title { margin: 0; font-size: 15px; font-weight: 500; flex: 1; min-width: 200px; }
+  .finding-location { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--muted); }
+  .finding-note, .finding-fix { margin-top: 6px; font-size: 14px; }
+  .finding-fix strong { color: var(--muted); font-weight: 500; }
+  .reviewer-source {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .mechanical {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: 14px;
+  }
+  .mechanical h3 { margin: 0 0 10px; font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .mechanical ul { margin: 0; padding-left: 20px; }
+  .mechanical li { margin-bottom: 4px; color: var(--text); }
+  footer.report-footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  footer .meta { display: flex; gap: 24px; flex-wrap: wrap; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+  }
 </style>
 </head>
-<body><main class="container">
-<header><h1>Regal Power Fitness — UX Validation Report</h1><div class="meta">_bmad-output/initiative-trainer-website/ux-personal-trainer-website/</div><p class="muted">Run at 2026-10-11</p></header>
-<section class="summary"><h2>Overall verdict</h2><p>The UX pair is now a usable downstream contract: all six spec capabilities map to named-protagonist flows, components match across visual and behavioral spines, source links and five selected surface mockups resolve, and the design token linter reports zero errors and warnings. Reviewer findings were fixed or converted to explicit, bounded launch inputs.</p><p>Navigation and photo direction remain user-deferred; the updated agreement, real contact destinations, media captions, and embed privacy details remain required before launch.</p></section>
-<section class="panel"><h2>Category verdicts</h2><div class="grid">
-<div>Flow coverage <span class="pill strong">Strong</span></div><div>Token completeness <span class="pill strong">Strong</span></div><div>Component coverage <span class="pill strong">Strong</span></div><div>State coverage <span class="pill adequate">Adequate</span></div><div>Visual reference coverage <span class="pill strong">Strong (5 mocks)</span></div><div>Bloat &amp; overspecification <span class="pill strong">Strong</span></div><div>Inheritance discipline <span class="pill adequate">Adequate</span></div><div>Shape fit <span class="pill strong">Strong</span></div></div></section>
-<section class="panel"><h2>Accessibility review</h2><p>This was a contract-level review; no implemented site was available for runtime testing. Intended text-color pairings pass WCAG AA. The spines now specify reflow/zoom checks, keyboard and focus behavior, review text alternatives, PDF accessibility verification, and media failure fallbacks.</p><p>Confirm captions and privacy information for selected embeds, and test the actual site and trainer-revised agreement before release.</p></section>
-<section class="panel"><h2>Findings by severity</h2><p><span class="count">Critical: 0</span> · <span class="count">High: 0 active, 1 resolved</span> · <span class="count">Medium: 1 active, 7 resolved</span> · <span class="count">Low: 1 active, 1 resolved</span></p>
-<article class="finding"><h3>High — Flow coverage (resolved)</h3><p>The initial draft lacked journeys for reviews/media and local contact. A second named-protagonist flow was added; the two flows now map CAP-1 through CAP-6 and include climax and failure beats.</p></article>
-<article class="finding"><h3>Medium — Video captions and embed privacy remain open</h3><p>Confirm captions for selected videos and privacy information for immediate third-party embeds. Embed failure fallbacks are specified.</p></article>
-<article class="finding"><h3>Resolved review fixes</h3><p>Added pair-specific contrast ratios; 320 CSS px, 200% text, and 400% zoom checks; navigation safeguards, target sizing, image alternatives, video controls, PDF accessibility verification, and media failure states. Clarified the agreement revision status.</p></article>
-<article class="finding"><h3>Low — Divider contrast (resolved)</h3><p>The divider is decorative only and cannot identify a control or state. Bright gold is not used on light surfaces.</p></article>
-<article class="finding"><h3>Other launch inputs</h3><p>Navigation pattern remains user-deferred. The trainer must supply the revised accessible agreement PDF, real phone/email/social URLs, approved photos, and review screenshot reuse permissions before publishing them.</p></article>
-<article class="finding"><h3>Third-party privacy</h3><p>Immediate embeds remain the confirmed behavior; privacy information is an open input, counted with the medium media finding.</p></article>
-</section>
-<section class="panel"><h2>Reviewer files</h2><ul><li><a href="review-rubric.md">review-rubric.md</a></li><li><a href="review-accessibility.md">review-accessibility.md</a></li></ul></section>
-<footer><div>DESIGN.md: <a href="DESIGN.md">DESIGN.md</a></div><div>EXPERIENCE.md: <a href="EXPERIENCE.md">EXPERIENCE.md</a></div><div>Generated: 2026-10-11</div></footer>
-</main></body></html>
+<body>
+  <div class="container">
+    <header class="report-header">
+      <div class="title">
+        <h1>Regal Power Fitness — UX Design Validation Report</h1>
+        <div class="subtitle">_bmad-output/initiative-trainer-website/ux-personal-trainer-website/</div>
+      </div>
+    </header>
+
+    <div class="synthesis">
+      <p>The UX spines and Services &amp; Classes mockup provide a coherent, implementable direction. The eight rubric dimensions are adequate or strong; all three actionable reviewer findings were fixed and verified before this report, leaving no known open findings from the selected reviews.</p>
+      <p>The Services refresh stays within the user-approved mockup copy and brand constraints. A recommendation based on the separately excluded requirements source was not adopted. The revised agreement, trainer-approved photography, social profile URLs, and video caption/privacy details remain launch inputs—not defects introduced by this refresh.</p>
+    </div>
+
+    <div class="dimension-summary">
+      <div class="dim-card"><div class="dim-name">Flow coverage</div><div class="dim-verdict" style="color: var(--verdict-adequate)">Adequate</div></div>
+      <div class="dim-card"><div class="dim-name">Token completeness</div><div class="dim-verdict" style="color: var(--verdict-adequate)">Adequate</div></div>
+      <div class="dim-card"><div class="dim-name">Component coverage</div><div class="dim-verdict" style="color: var(--verdict-adequate)">Adequate</div></div>
+      <div class="dim-card"><div class="dim-name">State coverage</div><div class="dim-verdict" style="color: var(--verdict-adequate)">Adequate</div></div>
+      <div class="dim-card"><div class="dim-name">Visual reference coverage</div><div class="dim-verdict" style="color: var(--verdict-strong)">Strong</div></div>
+      <div class="dim-card"><div class="dim-name">Bloat &amp; overspecification</div><div class="dim-verdict" style="color: var(--verdict-strong)">Strong</div></div>
+      <div class="dim-card"><div class="dim-name">Inheritance discipline</div><div class="dim-verdict" style="color: var(--verdict-adequate)">Adequate</div></div>
+      <div class="dim-card"><div class="dim-name">Shape fit</div><div class="dim-verdict" style="color: var(--verdict-strong)">Strong</div></div>
+    </div>
+
+    <section class="dimension"><details><summary><h2>Flow coverage</h2><span class="verdict-pill verdict-adequate">Adequate</span></summary><div class="dim-body"><div class="dim-judgment"><p>Both named-protagonist journeys have numbered steps, a climax, and applicable failure paths. The package journey covers comparison, agreement availability, and direct contact. It remains contingent on real contact details and the revised agreement being ready for launch.</p></div></div></details></section>
+    <section class="dimension"><details><summary><h2>Token completeness</h2><span class="verdict-pill verdict-adequate">Adequate</span></summary><div class="dim-body"><div class="dim-judgment"><p>The DESIGN spine defines explicit palette, typography, radius, spacing, and component tokens; its documented text/background pairs meet AA contrast. Shared theme styles provide the focus indicator and reduced-motion behavior. Token-to-component references are present in the spine.</p></div></div></details></section>
+    <section class="dimension"><details open><summary><h2>Component coverage</h2><span class="verdict-pill verdict-adequate">Adequate</span></summary>
+      <div class="dim-body"><div class="dim-judgment"><p>The Services package comparison, policy list, agreement download, and contact band have visual and behavioral rules in both spines. The tablet action regression identified by the reviewer is fixed and verified.</p></div></div>
+      <div class="findings-list"><article class="finding"><header><span class="badge badge-sev-medium">Medium · Resolved</span><h3 class="finding-title">Tablet package actions wrapped into tall controls</h3><span class="finding-location">Services responsive layout</span></header><div class="finding-note">The 761–960 px rule was nested inside the 760 px mobile query, so it could not apply. The tablet rule is now top-level, and package actions were verified at 761–960 px.</div><div class="finding-fix"><strong>Fix:</strong> mockups/key-services-classes.html</div></article></div>
+    </details></section>
+    <section class="dimension"><details><summary><h2>State coverage</h2><span class="verdict-pill verdict-adequate">Adequate</span></summary><div class="dim-body"><div class="dim-judgment"><p>The spines cover missing agreement, trainer photo, social URLs, contact information, and media failures. Focus, mobile navigation, and reduced-motion behavior are also specified or implemented. Video caption availability and third-party embed privacy remain explicit open inputs.</p></div></div></details></section>
+    <section class="dimension"><details><summary><h2>Visual reference coverage</h2><span class="verdict-pill verdict-strong">Strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>All five page mockups are linked from the information architecture, and shared navigation/theme styles are referenced from the visual spine. The Services mockup illustrates the package, policy, agreement, and contact patterns.</p></div></div></details></section>
+    <section class="dimension"><details><summary><h2>Bloat &amp; overspecification</h2><span class="verdict-pill verdict-strong">Strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>The Services refresh preserves the requested copy and avoids adding unapproved package features, claims, pricing, booking behavior, or a third personal-training card. The user-excluded requirements-source suggestion was recorded as out of scope and not added.</p></div></div></details></section>
+    <section class="dimension"><details><summary><h2>Inheritance discipline</h2><span class="verdict-pill verdict-adequate">Adequate</span></summary><div class="dim-body"><div class="dim-judgment"><p>Both spines include source lists, and their component names and token references align. The Services page was intentionally validated against its existing mockup copy, not the separately excluded requirements source.</p></div></div></details></section>
+    <section class="dimension"><details><summary><h2>Shape fit</h2><span class="verdict-pill verdict-strong">Strong</span></summary><div class="dim-body"><div class="dim-judgment"><p>DESIGN follows the canonical visual-system sections; EXPERIENCE includes the required foundation, information architecture, voice, component and state patterns, interaction primitives, accessibility floor, key flows, and responsive guidance.</p></div></div></details></section>
+
+    <section class="reviewer-section"><details open><summary><h2>Accessibility review</h2><span class="reviewer-source">review-accessibility.md</span></summary>
+      <div class="dim-body"><div class="dim-judgment"><p>The two actionable findings have been resolved. A dual-tone focus treatment was also added so focused controls remain visible on light and dark surfaces.</p></div></div>
+      <div class="findings-list">
+        <article class="finding"><header><span class="badge badge-sev-medium">Medium · Resolved</span><h3 class="finding-title">Repeated navigation had no keyboard bypass</h3><span class="finding-location">Services page start</span></header><div class="finding-note">A skip link now precedes shared navigation and targets the main landmark. Keyboard focus was verified on the link.</div><div class="finding-fix"><strong>Fix:</strong> mockups/key-services-classes.html</div></article>
+        <article class="finding"><header><span class="badge badge-sev-medium">Medium · Resolved</span><h3 class="finding-title">Reduced-motion users still received hover movement</h3><span class="finding-location">Shared buttons and package cards</span></header><div class="finding-note">Reduced-motion styling now removes button and card translation while retaining non-motion feedback.</div><div class="finding-fix"><strong>Fix:</strong> mockups/site-theme.css and mockups/key-services-classes.html</div></article>
+      </div>
+    </details></section>
+
+    <div class="mechanical">
+      <h3>Mechanical notes</h3>
+      <ul>
+        <li><code>git diff --check</code> passed.</li>
+        <li>Browser checks at 320, 390, 768, 800, 960, and 1280 CSS px reported no horizontal overflow.</li>
+        <li>Three medium-severity reviewer findings; all resolved. No known open findings from the selected reviews.</li>
+        <li>The Services mockup was the copy source; the recommendation from the separately excluded requirements source was not adopted.</li>
+      </ul>
+    </div>
+
+    <footer class="report-footer">
+      <div class="meta">
+        <span>Rubric: .agents/skills/bmad-ux/references/validate.md</span>
+        <span>Generated: 2026-10-21T22:48:33-04:00</span>
+      </div>
+      <div>DESIGN.md · EXPERIENCE.md · review-rubric.md · review-accessibility.md</div>
+    </footer>
+  </div>
+</body>
+</html>
