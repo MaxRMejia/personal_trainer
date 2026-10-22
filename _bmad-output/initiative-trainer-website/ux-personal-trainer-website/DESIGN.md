@@ -88,8 +88,21 @@ components:
     rounded: '{rounded.lg}'
   video-embed:
     size: '16:9'
+  gallery-placeholder:
+    backgroundColor: '{colors.surface-dark}'
+    textColor: '{colors.primary-foreground}'
+    rounded: '{rounded.md}'
+    aspectRatio: '16:9'
+  review-empty-state:
+    backgroundColor: '{colors.surface-base}'
+    textColor: '{colors.ink-primary}'
+    accentColor: '{colors.primary}'
   review-image:
     size: '100%'
+  contact-details:
+    backgroundColor: '{colors.surface-base}'
+    textColor: '{colors.ink-primary}'
+    accentColor: '{colors.primary}'
   brand-logo:
     size: 'contain'
     desktopSize: 80px
@@ -130,7 +143,7 @@ Use Playfair Display for editorial headings and DM Sans for body and interface t
 
 ## Layout & Spacing
 
-Use a mobile-first single-column reading flow, expanding into restrained desktop columns where comparison benefits. Use the 4/8/12/16/24/32 px spacing scale and generous section spacing. All five mockups load the shared navigation from [site-navigation.css](mockups/site-navigation.css); its floating smoked-glass surface, blur, inset, logo sizing (80 px desktop, 64 px mobile, 56 px narrow mobile), active state, and mobile disclosure stay consistent with Home. The shared theme in [site-theme.css](mockups/site-theme.css) owns palette, typography, spacing, radii, and button foundations for the modernized Home and Services mockups. The Services hero is intentionally compact, while Home retains its image-led entry moment.
+Use a mobile-first single-column reading flow, expanding into restrained desktop columns where comparison benefits. Use the 4/8/12/16/24/32 px spacing scale and generous section spacing. All five mockups load the shared navigation from [site-navigation.css](mockups/site-navigation.css); its floating smoked-glass surface, blur, inset, logo scale from `{components.brand-logo}`, active state, and mobile disclosure stay consistent with Home. The shared theme in [site-theme.css](mockups/site-theme.css) owns palette, typography, spacing, radii, and button foundations across all five mockups. The Home retains its image-led entry moment; Services keeps a compact branded hero, while the other secondary pages use the spacious, geometric page-intro treatment in [site-secondary-pages.css](mockups/site-secondary-pages.css).
 
 ## Elevation & Depth
 
@@ -159,7 +172,10 @@ Use 12 px for compact surfaces, 18 px for grouped policy items, 24 px for cards,
 - **brand-logo** — use the [imported Regal Power Fitness logo](imports/regal_logo.jpeg); do not rely on it to communicate trainer name, service area, or phone; see [Home/About mockup](mockups/key-home-about.html).
 - **trainer-photo** — use a trainer-approved original photo; preserve Lynette's real appearance, crop to keep the subject clear, and do not show another business's signage or apparel branding; see [Home/About mockup](mockups/key-home-about.html).
 - **site-navigation** — use the shared [navigation stylesheet](mockups/site-navigation.css) and identical markup on all five mockups; use horizontal links on desktop and an expandable, keyboard-operable menu on mobile; highlight the current page in light gold. See [Home/About mockup](mockups/key-home-about.html).
-- **page-intro** — keep secondary-page title bands generous and vertically aligned, with enough space to echo the Home hero without making content pages feel like another landing page; see the [Media Gallery mockup](mockups/key-media-gallery.html), [Reviews mockup](mockups/key-reviews.html), and [Contact/Location mockup](mockups/key-contact-location.html). Services uses its own compact branded hero.
+- **page-intro** — keep secondary-page title bands generous and vertically aligned, with a subtle geometric texture in the black/crimson/gold palette; see the [Media Gallery mockup](mockups/key-media-gallery.html), [Reviews mockup](mockups/key-reviews.html), and [Contact/Location mockup](mockups/key-contact-location.html). Services uses its own compact branded hero.
+- **gallery-placeholder** — preserve the 16:9 media area with a palette-only surface and existing unavailable message until trainer-approved media is supplied; never imply a working player or invent a media asset.
+- **review-empty-state** — keep the existing permission/availability notice editorial and easy to read; show approved review content only after its source and reuse permission are confirmed.
+- **contact-details** — organize the existing location and contact information in a responsive editorial layout; make only confirmed phone/email destinations active, and keep unverified social profile names as plain text.
 
 ## Do's and Don'ts
 
